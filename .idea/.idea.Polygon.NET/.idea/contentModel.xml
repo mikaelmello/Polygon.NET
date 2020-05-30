@@ -3,19 +3,54 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_Polygon.NET.309176500.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.4.0/build/netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/NUnit3.TestAdapter.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.api.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Polygon.NET.sln" t="IncludeFlat" />
       <e p="PolygonNET" t="IncludeRecursive">
-        <e p="Class1.cs" t="Include" />
         <e p="Network" t="Include">
-          <e p="PolygonRestClient.cs" t="Include" />
+          <e p="Exceptions" t="Include">
+            <e p="FailedRequestException.cs" t="Include" />
+          </e>
+          <e p="PolygonAuth.cs" t="Include" />
+          <e p="PolygonHttpClient.cs" t="Include" />
+          <e p="PolygonResponse.cs" t="Include" />
         </e>
         <e p="PolygonNET.csproj" t="IncludeRecursive" />
+        <e p="Utils" t="Include">
+          <e p="CryptoUtils.cs" t="Include" />
+          <e p="IEnumerableExtensions.cs" t="Include" />
+          <e p="RandomUtils.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="PolygonNET.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="PolygonNET.Tests" t="IncludeRecursive">
+        <e p="Network" t="Include">
+          <e p="PolygonAuthTest.cs" t="Include" />
+          <e p="PolygonHttpClientTest.cs" t="Include" />
+        </e>
+        <e p="PolygonNET.Tests.csproj" t="IncludeRecursive" />
+        <e p="Utils" t="Include">
+          <e p="CryptoUtilsTest.cs" t="Include" />
+          <e p="RandomUtilsTest.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="PolygonNET.Tests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
