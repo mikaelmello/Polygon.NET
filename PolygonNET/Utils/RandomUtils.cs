@@ -4,16 +4,35 @@ using System.Linq;
 using System.Security.Cryptography;
 
 namespace PolygonNET.Utils {
-    public static class RandomUtils {
-        public static string GetRandomAlphanumericString(int length) {
+    public interface IRandomUtils {
+        /// <summary>
+        /// Generates a string with <paramref name="length"/> random alphanumeric characters.
+        /// </summary>
+        /// <param name="length">Length of the generated string.</param>
+        /// <returns>String with <paramref name="length"/> random alphanumeric  characters.</returns>
+        public string GetRandomAlphanumericString(int length);
+        
+        /// <summary>
+        /// Generates a string with <paramref name="length"/> random characters from <paramref name="characterSet"/>.
+        /// </summary>
+        /// <param name="length">Length of the generated string.</param>
+        /// <param name="characterSet">Set of characters that the string can contain.</param>
+        /// <returns>
+        /// String with <paramref name="length"/> random characters from <paramref name="characterSet"/>.
+        /// </returns>
+        public string GetRandomString(int length, ISet<char> characterSet);
+    }
+    
+    public class RandomUtils : IRandomUtils {
+        public string GetRandomAlphanumericString(int length) {
             const string alphanumericCharacters =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
                 "abcdefghijklmnopqrstuvwxyz" +
                 "0123456789";
-            return GetRandomString(length, alphanumericCharacters);
+            return GetRandomString(length, alphanumericCharacters.ToHashSet());
         }
 
-        public static string GetRandomString(int length, IEnumerable<char> characterSet) {
+        public string GetRandomString(int length, ISet<char> characterSet) {
             if (length < 0)
                 throw new ArgumentException("length must not be negative", nameof(length));
             if (length > int.MaxValue / 8) // 250 million chars ought to be enough for anybody
@@ -21,7 +40,7 @@ namespace PolygonNET.Utils {
             if (characterSet == null)
                 throw new ArgumentNullException(nameof(characterSet));
 
-            var characterArray = characterSet.Distinct().ToArray();
+            var characterArray = characterSet.ToArray();
             if (characterArray.Length == 0)
                 throw new ArgumentException("characterSet must not be empty", nameof(characterSet));
 
