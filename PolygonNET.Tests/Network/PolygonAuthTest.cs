@@ -9,6 +9,7 @@ using PolygonNET.Network;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Tests.Network {
+    [TestFixture]
     public class PolygonAuthTest {
         private Mock<IRandomUtils> _randomUtils;
         private Mock<ICryptoUtils> _cryptoUtils;

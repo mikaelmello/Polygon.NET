@@ -5,7 +5,6 @@ using NUnit.Framework;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Tests.Utils {
-    
     [TestFixture]
     public class EnumerableExtensionsTest {
         private Faker _faker;
