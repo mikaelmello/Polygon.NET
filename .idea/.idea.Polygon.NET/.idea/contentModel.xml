@@ -21,11 +21,13 @@
           <e p="PolygonHttpClient.cs" t="Include" />
           <e p="PolygonResponse.cs" t="Include" />
         </e>
+        <e p="PolygonConfiguration.cs" t="Include" />
         <e p="PolygonNET.csproj" t="IncludeRecursive" />
         <e p="Utils" t="Include">
           <e p="CryptoUtils.cs" t="Include" />
-          <e p="IEnumerableExtensions.cs" t="Include" />
+          <e p="EnumerableExtensions.cs" t="Include" />
           <e p="RandomUtils.cs" t="Include" />
+          <e p="UtilsServiceCollection.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -44,6 +46,7 @@
         <e p="PolygonNET.Tests.csproj" t="IncludeRecursive" />
         <e p="Utils" t="Include">
           <e p="CryptoUtilsTest.cs" t="Include" />
+          <e p="EnumerableExtensionsTest.cs" t="Include" />
           <e p="RandomUtilsTest.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />

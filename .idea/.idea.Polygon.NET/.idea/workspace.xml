@@ -11,24 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1ec8c4e-27fc-4076-8dbb-50d339905b68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Polygon.NET.sln.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Polygon.NET.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonAuthTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET.Tests/PolygonNET.Tests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET.Tests/Utils/CryptoUtilsTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET/Network/Exceptions/FailedRequestException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET/Network/PolygonAuth.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET/Network/PolygonResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET/Utils/CryptoUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET/Utils/IEnumerableExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PolygonNET/PolygonConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Polygon.NET.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Polygon.NET.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PolygonNET/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Polygon.NET.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Polygon.NET.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PolygonNET/PolygonNET.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET/PolygonNET.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PolygonNET/Utils/IEnumerableExtensions.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,43 +32,56 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D9B29DD-5A1F-41F6-8858-2C04E4B03A5C/A8/HttpHeaderValueCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D9B29DD-5A1F-41F6-8858-2C04E4B03A5C/A9/HttpRequestHeaders.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D9B29DD-5A1F-41F6-8858-2C04E4B03A5C/46/HttpContent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20735148-1523-4917-A5E8-F91B0B239405/A1/StringEnumConverter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D9B29DD-5A1F-41F6-8858-2C04E4B03A5C/48/HttpMessageInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET/Network/PolygonAuth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20735148-1523-4917-A5E8-F91B0B239405/7/JsonConverterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PolygonNET/Utils/IEnumerableExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET/Utils/EnumerableExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET/Utils/CryptoUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonAuthTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C07BEBAD-2F5C-4B9A-910F-ADE5195DDC5F/1f/b272162f/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D9B29DD-5A1F-41F6-8858-2C04E4B03A5C/4B/HttpRequestMessage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6A7E6566-1615-48C8-BD3A-1CD85232D0C7/A/Person.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8313E62F-62B5-4160-A8A4-2617E9D6CE22/B/UriBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET/Network/Exceptions/FailedRequestException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET/PolygonConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20735148-1523-4917-A5E8-F91B0B239405/A1/StringEnumConverter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET.Tests/Utils/EnumerableExtensionsTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/20735148-1523-4917-A5E8-F91B0B239405/7/JsonConverterAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D392DB2F-B3D6-4F4F-A564-A7B744FC7801/0f/89a3ae07/SetUpAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C07BEBAD-2F5C-4B9A-910F-ADE5195DDC5F/1f/b272162f/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79C0EEDF-F360-40E2-8195-D981CD86E2AE/F/RNGCryptoServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET.Tests/Utils/CryptoUtilsTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PolygonNET/Network/Exceptions/FailedRequestException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7D9B29DD-5A1F-41F6-8858-2C04E4B03A5C/41/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET/Utils/UtilsServiceCollection.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonRestClient.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Network/Exceptions/FailedRequestException.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET/Utils/CryptoUtils.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonResponse.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Class1.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtils.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/CryptoUtilsTest.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/IEnumerableExtensions.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/IRandomUtils.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/CryptoUtilsTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/CryptoUtils.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/EnumerableExtensionsTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/tilsServiceProvider.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/UtilsServiceProvider.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Configuration.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/EnumerableExtensions.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonAuth.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonAuthTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/PolygonConfiguration.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/UtilsServiceCollection.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +112,7 @@
       <updated>1590707878592</updated>
       <workItem from="1590707887214" duration="1169000" />
       <workItem from="1590709305703" duration="11029000" />
-      <workItem from="1590867158080" duration="1488000" />
+      <workItem from="1590867158080" duration="9458000" />
     </task>
     <servers />
   </component>
@@ -131,86 +133,86 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1874" height="368" key="GridCell.Tab.0.bottom" timestamp="1590720338321">
+    <state width="1874" height="368" key="GridCell.Tab.0.bottom" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338321" />
-    <state width="1874" height="368" key="GridCell.Tab.0.center" timestamp="1590720338321">
+    <state width="1874" height="368" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.0.center" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338321" />
-    <state width="1874" height="368" key="GridCell.Tab.0.left" timestamp="1590720338321">
+    <state width="1874" height="368" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.0.left" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338321" />
-    <state width="1874" height="368" key="GridCell.Tab.0.right" timestamp="1590720338321">
+    <state width="1874" height="368" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.0.right" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338321" />
-    <state width="1874" height="368" key="GridCell.Tab.1.bottom" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.1.bottom" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.1.center" timestamp="1590720338321">
+    <state width="1874" height="368" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.1.center" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.1.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338321" />
-    <state width="1874" height="368" key="GridCell.Tab.1.left" timestamp="1590720338321">
+    <state width="1874" height="368" key="GridCell.Tab.1.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.1.left" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.1.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338321" />
-    <state width="1874" height="368" key="GridCell.Tab.1.right" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.1.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.1.right" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.1.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.2.bottom" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.1.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.2.bottom" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.2.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.2.center" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.2.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.2.center" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.2.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.2.left" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.2.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.2.left" timestamp="1590876570693">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.2.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.2.right" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.2.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570693" />
+    <state width="1874" height="368" key="GridCell.Tab.2.right" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.2.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.3.bottom" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.2.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.3.bottom" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.3.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
-    <state width="1874" height="368" key="GridCell.Tab.3.center" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.3.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.3.center" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.3.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
-    <state width="1874" height="368" key="GridCell.Tab.3.left" timestamp="1590720338322">
+    <state width="1874" height="368" key="GridCell.Tab.3.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.3.left" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.3.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338322" />
-    <state width="1874" height="368" key="GridCell.Tab.3.right" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.3.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.3.right" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.3.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
-    <state width="1874" height="368" key="GridCell.Tab.4.bottom" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.3.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.4.bottom" timestamp="1590876570695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.4.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
-    <state width="1874" height="368" key="GridCell.Tab.4.center" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.4.bottom/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570695" />
+    <state width="1874" height="368" key="GridCell.Tab.4.center" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.4.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
-    <state width="1874" height="368" key="GridCell.Tab.4.left" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.4.center/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.4.left" timestamp="1590876570694">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.4.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
-    <state width="1874" height="368" key="GridCell.Tab.4.right" timestamp="1590720338323">
+    <state width="1874" height="368" key="GridCell.Tab.4.left/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570694" />
+    <state width="1874" height="368" key="GridCell.Tab.4.right" timestamp="1590876570695">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1874" height="368" key="GridCell.Tab.4.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590720338323" />
+    <state width="1874" height="368" key="GridCell.Tab.4.right/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876570695" />
     <state x="2476" y="257" key="Rider.ProjectTemplateDialog.Size" timestamp="1590715403993">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -223,6 +225,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590714833158" />
+    <state x="2020" y="100" width="1720" height="844" key="VCS.FileHistoryDialog" timestamp="1590872296726">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2020" y="100" width="1720" height="844" key="VCS.FileHistoryDialog/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590872296726" />
     <state x="2553" y="130" width="654" height="783" key="find.popup" timestamp="1590714910269">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -231,9 +237,9 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2529" y="243" width="700" height="530" key="recent.locations.popup/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590709220074" />
-    <state x="2543" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1590719812691">
+    <state x="2543" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1590876144224">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2543" y="230" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590719812691" />
+    <state x="2543" y="230" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.0.1920.1044@1920.0.1920.1080" timestamp="1590876144224" />
   </component>
 </project>
