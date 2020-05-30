@@ -4,34 +4,37 @@ using System.Net.Http;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using PolygonNET.Network.Exceptions;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
     public class PolygonHttpClient {
-        private const string BaseUrl = "https://polygon.codeforces.com/api/";
-
+        private readonly PolygonConfiguration _configuration;
+        private readonly IPolygonAuth _polygonAuth;
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey;
-        private readonly string _apiSecret;
-        private readonly string _customBaseUrl;
 
-        public PolygonHttpClient(string apiKey, string apiSecret, string customBaseUrl = null, HttpClient httpClient = null) {
-            _httpClient = httpClient ?? new HttpClient();
-            _apiKey = apiKey;
-            _apiSecret = apiSecret;
-            _customBaseUrl = customBaseUrl;
+        public PolygonHttpClient(IOptions<PolygonConfiguration> options, IPolygonAuth polygonAuth,
+                                 HttpClient httpClient = null) {
+            _configuration = options.Value;
+            _polygonAuth = polygonAuth;
 
-            ConfigureHttpClient();
+            _httpClient = httpClient ?? DefaultHttpClient(_configuration.ApiBaseUrl);
         }
 
         public async Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
                                              CancellationToken cancellationToken) {
-            parameters = PolygonAuth.AuthorizeRequest(methodName, parameters, _apiKey, _apiSecret);
+            _polygonAuth.AuthorizeRequest(methodName, parameters, _configuration.ApiKey, _configuration.ApiSecret);
 
-            var uri = new UriBuilder(methodName) {Query = parameters.BuildQueryString()};
-            var response = await _httpClient.PostAsync(uri.Uri, null, cancellationToken);
+            var path = methodName;
+
+            if (parameters.Count > 0) {
+                var queryString = parameters.BuildQueryString();
+                path = $"{methodName}?{queryString}";
+            }
+            
+            var response = await _httpClient.PostAsync(path, null, cancellationToken);
             var contentStream = await response.Content.ReadAsStringAsync();
 
             var content = JsonConvert.DeserializeObject<PolygonResponse<T>>(contentStream);
@@ -42,10 +45,14 @@ namespace PolygonNET.Network {
             return content.Result;
         }
 
-        private void ConfigureHttpClient() {
-            _httpClient.BaseAddress = new Uri(_customBaseUrl ?? BaseUrl);
+        private HttpClient DefaultHttpClient(string baseUrl) {
+            var httpClient = new HttpClient();
+
+            _httpClient.BaseAddress = new Uri(baseUrl);
             _httpClient.DefaultRequestHeaders.Accept.ParseAdd(MediaTypeNames.Application.Json);
             _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Polygon.NET - A .NET client for the Polygon API");
+
+            return httpClient;
         }
     }
 }

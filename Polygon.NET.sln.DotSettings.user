@@ -16,7 +16,5 @@
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c088f74c_002D276b_002D4eac_002D92b6_002Dc4f1f5901866/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetApiSignatureCreatesCorrectHash" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0::.NETCoreApp,Version=v3.1::PolygonNET.Tests.Network.PolygonAuthTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+  &lt;Project Location="/home/mikaelmello/Personal/untitled-oj/Polygon.NET/PolygonNET.Tests" Presentation="&amp;lt;PolygonNET.Tests&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
