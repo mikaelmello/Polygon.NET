@@ -1,20 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=57dc649c_002D5ad6_002D4297_002Da76a_002D55a0ad5510b0/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="SimpleSha512Checks #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0::.NETCoreApp,Version=v3.1::PolygonNET.Tests.Utils.CryptoUtilsTest.SimpleSha512Checks&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6f383764_002D0e47_002D4c0c_002D93e3_002D80454d258268/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="SimpleSha512Checks" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;Project Location="/home/mikaelmello/Personal/untitled-oj/Polygon.NET/PolygonNET.Tests" Presentation="&amp;lt;PolygonNET.Tests&amp;gt;" /&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7f2ce264_002Da5b2_002D4c21_002Dbd2b_002Dc0f92c66ce1a/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="QueryStringIsProperlyBuiltWithAsciiValues" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0::.NETCoreApp,Version=v3.1::PolygonNET.Tests.Utils.EnumerableExtensionsTest.QueryStringIsProperlyBuiltWithExample&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0::.NETCoreApp,Version=v3.1::PolygonNET.Tests.Utils.EnumerableExtensionsTest.QueryStringIsProperlyBuiltWithEncodedChars&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0::.NETCoreApp,Version=v3.1::PolygonNET.Tests.Network.PolygonHttpClientTest&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0::.NETCoreApp,Version=v3.1::PolygonNET.Tests.Network.PolygonAuthTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c088f74c_002D276b_002D4eac_002D92b6_002Dc4f1f5901866/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetApiSignatureCreatesCorrectHash" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;Project Location="/home/mikaelmello/Personal/untitled-oj/Polygon.NET/PolygonNET.Tests" Presentation="&amp;lt;PolygonNET.Tests&amp;gt;" /&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1da698e4_002D2221_002D45ef_002D93e5_002Db66c354f7824/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="All tests from Solution" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

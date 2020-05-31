@@ -10,6 +10,7 @@ using Moq;
 using Moq.Protected;
 using NUnit.Framework;
 using PolygonNET.Network;
+using PolygonNET.Network.Exceptions;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Tests.Network {
@@ -39,15 +40,16 @@ namespace PolygonNET.Tests.Network {
             };
 
             _polygonHttpClient = new PolygonHttpClient(_options, _polygonAuth.Object, httpClient);
-        }
 
-        [Test]
-        public async Task RequestAsyncCallsCorrectUri() {
             _polygonAuth.Setup(p =>
                                    p.AuthorizeRequest(It.IsAny<string>(),
                                                       It.IsAny<Dictionary<string, string>>(),
                                                       It.IsAny<string>(),
                                                       It.IsAny<string>()));
+        }
+
+        [Test]
+        public async Task RequestAsyncCallsCorrectUri() {
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -88,11 +90,6 @@ namespace PolygonNET.Tests.Network {
 
         [Test]
         public async Task RequestAsyncCallsCorrectUriWithEmptyParams() {
-            _polygonAuth.Setup(p =>
-                                   p.AuthorizeRequest(It.IsAny<string>(),
-                                                      It.IsAny<Dictionary<string, string>>(),
-                                                      It.IsAny<string>(),
-                                                      It.IsAny<string>()));
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -135,12 +132,7 @@ namespace PolygonNET.Tests.Network {
                     ""expectedString"": ""someValue""
                 }
             }";
-            
-            _polygonAuth.Setup(p =>
-                                   p.AuthorizeRequest(It.IsAny<string>(),
-                                                      It.IsAny<Dictionary<string, string>>(),
-                                                      It.IsAny<string>(),
-                                                      It.IsAny<string>()));
+
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -154,10 +146,102 @@ namespace PolygonNET.Tests.Network {
 
             const string methodName = "problems.fetch";
 
-            var response = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, new Dictionary<string, string>(),
-                                                                      CancellationToken.None);
+            var response = await _polygonHttpClient.RequestAsync<ExpectedObject>(
+                methodName, new Dictionary<string, string>(),
+                CancellationToken.None);
 
             Assert.AreEqual("someValue", response.ExpectedString);
+        }
+
+        [Test]
+        public void FailedRequestWithGenericMessageThrows() {
+            _httpHandler
+                .Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(new HttpResponseMessage {
+                    StatusCode = HttpStatusCode.InternalServerError,
+                    Content = new StringContent("no healthy upstream"),
+                });
+
+            const string methodName = "problems.fetch";
+            var parameters = new Dictionary<string, string>();
+
+            var ex = Assert.ThrowsAsync<FailedRequestException>(
+                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
+            Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
+            
+            _httpHandler.Protected().Verify(
+                "SendAsync",
+                Times.Exactly(1),
+                ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>()
+            );
+        }
+
+        [Test]
+        public void FailedRequestWithCommentThrows() {
+            const string resContent = @"{
+                ""status"": ""FAILED"",
+                ""comment"": ""failed request, that's too bad""
+            }";
+            
+            _httpHandler
+                .Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(new HttpResponseMessage {
+                    StatusCode = HttpStatusCode.BadRequest,
+                    Content = new StringContent(resContent),
+                });
+
+            const string methodName = "problems.fetch";
+            var parameters = new Dictionary<string, string>();
+
+            var ex = Assert.ThrowsAsync<FailedRequestException>(
+                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
+            Assert.AreEqual("failed request, that's too bad", ex.Message);
+            
+            _httpHandler.Protected().Verify(
+                "SendAsync",
+                Times.Exactly(1),
+                ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>()
+            );
+        }
+
+        [Test]
+        public void FailedRequestWithCommentThrows() {
+            const string resContent = @"{
+                ""status"": ""FAILED"",
+                ""comment"": ""failed request, that's too bad""
+            }";
+            
+            _httpHandler
+                .Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(new HttpResponseMessage {
+                    StatusCode = HttpStatusCode.BadRequest,
+                    Content = new StringContent(resContent),
+                });
+
+            const string methodName = "problems.fetch";
+            var parameters = new Dictionary<string, string>();
+
+            var ex = Assert.ThrowsAsync<FailedRequestException>(
+                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
+            Assert.AreEqual("failed request, that's too bad", ex.Message);
+            
+            _httpHandler.Protected().Verify(
+                "SendAsync",
+                Times.Exactly(1),
+                ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>()
+            );
         }
 
         private class ExpectedObject {

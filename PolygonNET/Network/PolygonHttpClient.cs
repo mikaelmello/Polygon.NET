@@ -37,11 +37,24 @@ namespace PolygonNET.Network {
             var response = await _httpClient.PostAsync(path, null, cancellationToken);
             var contentStream = await response.Content.ReadAsStringAsync();
 
-            var content = JsonConvert.DeserializeObject<PolygonResponse<T>>(contentStream);
-            if (!response.IsSuccessStatusCode || content.Status == PolygonResponseStatus.Failed) {
-                throw new FailedRequestException(content.Comment);
+            if (!response.IsSuccessStatusCode) {
+                string reason;
+                
+                try {
+                    var failedResponse = JsonConvert.DeserializeObject<PolygonFailedResponse>(contentStream);
+                    reason = failedResponse.Comment;
+                } catch (JsonException ex) {
+                    reason = $"{response.ReasonPhrase}: {contentStream}";
+                }
+                
+                throw new FailedRequestException(reason);
             }
 
+            var content = JsonConvert.DeserializeObject<PolygonResponse<T>>(contentStream);
+            if (content.Status == PolygonResponseStatus.Failed) {
+                throw new FailedRequestException(content.Comment);
+            }
+            
             return content.Result;
         }
 

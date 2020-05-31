@@ -13,4 +13,9 @@ namespace PolygonNET.Network {
         public string Comment { get; set; }
         public T Result { get; set; }
     }
+
+    public sealed class PolygonFailedResponse {
+        public PolygonResponseStatus Status { get; set; }
+        public string Comment { get; set; }
+    }
 }
