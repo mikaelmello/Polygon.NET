@@ -58,7 +58,7 @@ namespace PolygonNET.Network {
             return content.Result;
         }
 
-        private HttpClient DefaultHttpClient(string baseUrl) {
+        private static HttpClient DefaultHttpClient(string baseUrl) {
             var httpClient = new HttpClient {
                 BaseAddress = new Uri(baseUrl),
             };
