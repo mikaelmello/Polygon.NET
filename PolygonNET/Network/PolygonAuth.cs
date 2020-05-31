@@ -39,7 +39,7 @@ namespace PolygonNET.Network {
                                      Dictionary<string, string> parameters,
                                      string apiKey, string apiSecret) {
             parameters["apiKey"] = apiKey;
-            parameters["time"] = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString();
+            parameters["time"] = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
             parameters["apiSig"] = GetApiSignature(methodName, parameters, apiSecret);
         }
 
@@ -50,8 +50,8 @@ namespace PolygonNET.Network {
             var orderedParams = parameters.OrderBy(pair => pair.Key);
             var queryString = orderedParams.BuildQueryString();
             var plainText = $"{rand}/{methodName}?{queryString}#{apiSecret}";
-            var hash = _cryptoUtils.ComputeSha512Hash(plainText);
-            return hash;
+            var hash = _cryptoUtils.ComputeSha512Hash(plainText).ToLower();
+            return $"{rand}{hash}";
         }
     }
 }
