@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Bogus;
 using NUnit.Framework;
@@ -41,6 +42,20 @@ namespace PolygonNET.Tests.Utils {
         }
 
         [Test]
+        public void RandomAlphanumericStringThrowsWithInvalidArgs() {
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomAlphanumericString(-1));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomAlphanumericString(-100));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomAlphanumericString(1_000_000_000));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomAlphanumericString(268_435_456));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomAlphanumericString(-1));
+        }
+
+        [Test]
+        public void RandomAlphanumericStringDoesNotThrowWithEdgeCaseArgs() {
+            Assert.DoesNotThrow(() => _randomUtils.GetRandomAlphanumericString(0));
+        }
+
+        [Test]
         public void RandomStringReturnsCorrectLength() {
             const string alphanumericCharacters =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
@@ -57,7 +72,6 @@ namespace PolygonNET.Tests.Utils {
 
         [Test]
         public void RandomStringReturnsCorrectCharset() {
-            // ReSharper disable once StringLiteralTypo
             const string charset = "abcde12345!@#$%[]{}()";
 
             for (var i = 0; i < _randIterations; i++) {
@@ -67,6 +81,28 @@ namespace PolygonNET.Tests.Utils {
                 var inCharset = rand.All(c => charset.Contains(c));
                 Assert.IsTrue(inCharset);
             }
+        }
+
+        [Test]
+        public void RandomStringThrowsWithInvalidArgs() {
+            var charset = "abcde12345!@#$%[]{}()".ToHashSet();
+
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomString(-1, charset));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomString(-100, charset));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomString(1_000_000_000, charset));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomString(268_435_456, charset));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomString(10, "".ToHashSet()));
+            Assert.Throws<ArgumentException>(() => _randomUtils.GetRandomString(-1, "".ToHashSet()));
+
+            Assert.Throws<ArgumentNullException>(() => _randomUtils.GetRandomString(10, null));
+        }
+
+        [Test]
+        public void RandomStringDoesNotThrowWithEdgeCaseArgs() {
+            var charset = "abcde12345!@#$%[]{}()".ToHashSet();
+
+            Assert.DoesNotThrow(() => _randomUtils.GetRandomString(0, charset));
+            Assert.DoesNotThrow(() => _randomUtils.GetRandomString(10, "a".ToHashSet()));
         }
     }
 }

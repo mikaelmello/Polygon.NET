@@ -10,6 +10,9 @@ namespace PolygonNET.Utils {
         /// </summary>
         /// <param name="length">Length of the generated string.</param>
         /// <returns>String with <paramref name="length"/> random alphanumeric  characters.</returns>
+        /// <exception cref="ArgumentException">
+        /// When <paramref name="length"/> is negative or larger than <code>int.MaxValue / 8</code>.
+        /// </exception>
         public string GetRandomAlphanumericString(int length);
         
         /// <summary>
@@ -20,6 +23,13 @@ namespace PolygonNET.Utils {
         /// <returns>
         /// String with <paramref name="length"/> random characters from <paramref name="characterSet"/>.
         /// </returns>
+        /// <exception cref="ArgumentException">
+        /// When <paramref name="length"/> is negative or larger than <code>int.MaxValue / 8</code>, and when
+        /// <paramref name="characterSet"/> is empty.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        /// When <paramref name="characterSet"/> is null.
+        /// </exception>
         public string GetRandomString(int length, ISet<char> characterSet);
     }
     
