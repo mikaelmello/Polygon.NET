@@ -11,11 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1ec8c4e-27fc-4076-8dbb-50d339905b68" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PolygonNET.Tests/Utils/UtilsServiceCollectionTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polygon.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Polygon.NET.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Polygon.NET.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PolygonNET/Network/PolygonResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET/Network/PolygonResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6A7E6566-1615-48C8-BD3A-1CD85232D0C7/A/Person.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8313E62F-62B5-4160-A8A4-2617E9D6CE22/B/UriBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CDAE4105-7E89-4723-8979-C3C1D3936A03/140/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PolygonNET.Tests/Utils/UtilsServiceCollectionTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET/Network/Exceptions/FailedRequestException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/629E8C36-8FEB-44BE-9A62-46D750DBB965/7/ServiceCollectionDescriptorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PolygonNET/PolygonConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -71,22 +75,23 @@
         <option value="$PROJECT_DIR$/PolygonNET/Utils/IEnumerableExtensions.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/IRandomUtils.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/CryptoUtils.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/tilsServiceProvider.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/UtilsServiceProvider.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Configuration.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/EnumerableExtensions.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/PolygonConfiguration.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Utils/UtilsServiceCollection.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/EnumerableExtensionsTest.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/CryptoUtilsTest.cs" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonAuth.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonAuthTest.cs" />
         <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonResponse.cs" />
-        <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" />
         <option value="$PROJECT_DIR$/PolygonNET.Tests/Network/PolygonHttpClientTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Utils/RandomUtils.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET/Network/PolygonHttpClient.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/UtilsServiceCollectionTest.cs" />
+        <option value="$PROJECT_DIR$/PolygonNET.Tests/Utils/RandomUtilsTest.cs" />
       </list>
     </option>
   </component>
@@ -119,6 +124,7 @@
       <workItem from="1590709305703" duration="11029000" />
       <workItem from="1590867158080" duration="13090000" />
       <workItem from="1590882586298" duration="3106000" />
+      <workItem from="1590963121983" duration="3087000" />
     </task>
     <servers />
   </component>
@@ -126,7 +132,7 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="312" />
+    <option name="symbolColumnWidth" value="352" />
     <coverage-tree-state>
       <expand>
         <path>
@@ -136,28 +142,20 @@
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="120" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="135" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="120" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="113" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="135" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="131" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="120" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="113" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="114" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="120" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="113" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="114" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="55" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="135" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="131" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="132" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
