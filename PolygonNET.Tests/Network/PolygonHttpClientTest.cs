@@ -213,7 +213,7 @@ namespace PolygonNET.Tests.Network {
         }
 
         [Test]
-        public void FailedRequestWithCommentThrows() {
+        public void SuccessfulRequestWithFailedContentThrows() {
             const string resContent = @"{
                 ""status"": ""FAILED"",
                 ""comment"": ""failed request, that's too bad""
@@ -226,7 +226,7 @@ namespace PolygonNET.Tests.Network {
                     ItExpr.IsAny<HttpRequestMessage>(),
                     ItExpr.IsAny<CancellationToken>())
                 .ReturnsAsync(new HttpResponseMessage {
-                    StatusCode = HttpStatusCode.BadRequest,
+                    StatusCode = HttpStatusCode.OK,
                     Content = new StringContent(resContent),
                 });
 
