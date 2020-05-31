@@ -46,11 +46,12 @@ namespace PolygonNET.Network {
         }
 
         private HttpClient DefaultHttpClient(string baseUrl) {
-            var httpClient = new HttpClient();
+            var httpClient = new HttpClient {
+                BaseAddress = new Uri(baseUrl),
+            };
 
-            _httpClient.BaseAddress = new Uri(baseUrl);
-            _httpClient.DefaultRequestHeaders.Accept.ParseAdd(MediaTypeNames.Application.Json);
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Polygon.NET - A .NET client for the Polygon API");
+            httpClient.DefaultRequestHeaders.Accept.ParseAdd(MediaTypeNames.Application.Json);
+            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Polygon.NET - A .NET client for the Polygon API");
 
             return httpClient;
         }
