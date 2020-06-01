@@ -43,7 +43,7 @@ namespace PolygonNET.Network {
                 try {
                     var failedResponse = JsonConvert.DeserializeObject<PolygonFailedResponse>(contentStream);
                     reason = failedResponse.Comment;
-                } catch (JsonException ex) {
+                } catch (JsonException) {
                     reason = $"{response.ReasonPhrase}: {contentStream}";
                 }
                 
