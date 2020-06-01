@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace PolygonNET.Api {
     /// <summary>
@@ -20,6 +21,7 @@ namespace PolygonNET.Api {
         /// Last time when the file was modified.
         /// </summary>
         [JsonProperty("modificationTimeSeconds")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTimeOffset ModifiedAt { get; set; }
         
         /// <summary>

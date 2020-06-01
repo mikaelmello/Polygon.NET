@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace PolygonNET.Api {
     /// <summary>
@@ -20,6 +21,7 @@ namespace PolygonNET.Api {
         /// Last time when the solution     was modified.
         /// </summary>
         [JsonProperty("modificationTimeSeconds")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTimeOffset ModifiedAt { get; set; }
         
         /// <summary>
@@ -30,6 +32,6 @@ namespace PolygonNET.Api {
         /// <summary>
         /// Solution tag.
         /// </summary>
-        public PolygonSolutionTag SolutionTag { get; set; }
+        public PolygonSolutionTag Tag { get; set; }
     }
 }
