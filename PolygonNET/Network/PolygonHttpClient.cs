@@ -25,6 +25,18 @@ namespace PolygonNET.Network {
 
         public async Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
                                              CancellationToken cancellationToken) {
+            var stringContent = await RequestAsync(methodName, parameters, cancellationToken);
+            var content = JsonConvert.DeserializeObject<PolygonResponse<T>>(stringContent);
+            
+            if (content.Status == PolygonResponseStatus.Failed) {
+                throw new FailedRequestException(content.Comment);
+            }
+            
+            return content.Result;
+        }
+
+        public async Task<string> RequestAsync(string methodName, Dictionary<string, string> parameters,
+                                             CancellationToken cancellationToken) {
             _polygonAuth.AuthorizeRequest(methodName, parameters, _configuration.ApiKey, _configuration.ApiSecret);
 
             var path = methodName;
@@ -35,27 +47,18 @@ namespace PolygonNET.Network {
             }
             
             var response = await _httpClient.PostAsync(path, null, cancellationToken);
-            var contentStream = await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode) {
-                string reason;
-                
-                try {
-                    var failedResponse = JsonConvert.DeserializeObject<PolygonFailedResponse>(contentStream);
-                    reason = failedResponse.Comment;
-                } catch (JsonException) {
-                    reason = $"{response.ReasonPhrase}: {contentStream}";
-                }
-                
-                throw new FailedRequestException(reason);
+            if (response.IsSuccessStatusCode) {
+                return content;
             }
 
-            var content = JsonConvert.DeserializeObject<PolygonResponse<T>>(contentStream);
-            if (content.Status == PolygonResponseStatus.Failed) {
-                throw new FailedRequestException(content.Comment);
+            try {
+                var failedResponse = JsonConvert.DeserializeObject<PolygonFailedResponse>(content);
+                throw new FailedRequestException(failedResponse.Comment);
+            } catch (JsonException) {
+                throw new FailedRequestException($"{response.ReasonPhrase}: {content}");
             }
-            
-            return content.Result;
         }
 
         private static HttpClient DefaultHttpClient(string baseUrl) {
