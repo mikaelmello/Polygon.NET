@@ -169,7 +169,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var ex = Assert.ThrowsAsync<FailedRequestException>(
+            var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
             
@@ -201,7 +201,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var ex = Assert.ThrowsAsync<FailedRequestException>(
+            var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
             
@@ -233,7 +233,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var ex = Assert.ThrowsAsync<FailedRequestException>(
+            var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
             
@@ -360,7 +360,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var ex = Assert.ThrowsAsync<FailedRequestException>(
+            var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
             
@@ -392,7 +392,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var ex = Assert.ThrowsAsync<FailedRequestException>(
+            var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
             

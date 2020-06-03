@@ -10,34 +10,47 @@ using PolygonNET.Network.Exceptions;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
-    internal class PolygonHttpClient {
+    public interface IPolygonHttpClient {
+        public Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
+                                       CancellationToken cancellationToken);
+
+        public Task<string> RequestAsync(string methodName, Dictionary<string, string> parameters,
+                                         CancellationToken cancellationToken);
+    }
+
+    public class PolygonHttpClient : IPolygonHttpClient {
         private readonly PolygonConfiguration _configuration;
-        private readonly IPolygonAuth _polygonAuth;
+        private readonly IPolygonAuth _auth;
         private readonly HttpClient _httpClient;
 
-        public PolygonHttpClient(IOptions<PolygonConfiguration> options, IPolygonAuth polygonAuth,
-                                 HttpClient httpClient = null) {
+        public PolygonHttpClient(IOptions<PolygonConfiguration> options, IPolygonAuth auth) {
             _configuration = options.Value;
-            _polygonAuth = polygonAuth;
+            _auth = auth;
+            _httpClient = DefaultHttpClient(_configuration.ApiBaseUrl);
+        }
 
-            _httpClient = httpClient ?? DefaultHttpClient(_configuration.ApiBaseUrl);
+        public PolygonHttpClient(IOptions<PolygonConfiguration> options, IPolygonAuth auth,
+                                 HttpClient httpClient) {
+            _configuration = options.Value;
+            _auth = auth;
+            _httpClient = httpClient;
         }
 
         public async Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
                                              CancellationToken cancellationToken) {
             var stringContent = await RequestAsync(methodName, parameters, cancellationToken);
             var content = JsonConvert.DeserializeObject<PolygonResponse<T>>(stringContent);
-            
+
             if (content.Status == PolygonResponseStatus.Failed) {
-                throw new FailedRequestException(content.Comment);
+                throw new PolygonFailedRequestException(content.Comment);
             }
-            
+
             return content.Result;
         }
 
         public async Task<string> RequestAsync(string methodName, Dictionary<string, string> parameters,
-                                             CancellationToken cancellationToken) {
-            _polygonAuth.AuthorizeRequest(methodName, parameters, _configuration.ApiKey, _configuration.ApiSecret);
+                                               CancellationToken cancellationToken) {
+            _auth.AuthorizeRequest(methodName, parameters, _configuration.ApiKey, _configuration.ApiSecret);
 
             var path = methodName;
 
@@ -45,7 +58,7 @@ namespace PolygonNET.Network {
                 var queryString = parameters.BuildQueryString();
                 path = $"{methodName}?{queryString}";
             }
-            
+
             var response = await _httpClient.PostAsync(path, null, cancellationToken);
             var content = await response.Content.ReadAsStringAsync();
 
@@ -55,9 +68,10 @@ namespace PolygonNET.Network {
 
             try {
                 var failedResponse = JsonConvert.DeserializeObject<PolygonFailedResponse>(content);
-                throw new FailedRequestException(failedResponse.Comment);
-            } catch (JsonException) {
-                throw new FailedRequestException($"{response.ReasonPhrase}: {content}");
+                throw new PolygonFailedRequestException(failedResponse.Comment);
+            }
+            catch (JsonException) {
+                throw new PolygonFailedRequestException($"{response.ReasonPhrase}: {content}");
             }
         }
 
