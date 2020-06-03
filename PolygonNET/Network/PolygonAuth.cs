@@ -4,6 +4,9 @@ using System.Linq;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
+    /// <summary>
+    /// Service that contains methods used to authorize requests based on Polygon's flow.
+    /// </summary>
     public interface IPolygonAuth {
         /// <summary>
         /// Adds the apiKey, time and apiSig parameters in the <paramref name="parameters"/> dictionary, necessary

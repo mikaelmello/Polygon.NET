@@ -11,6 +11,10 @@ namespace PolygonNET.Network {
         Failed,
     }
 
+    /// <summary>
+    /// General structure of the response from a request to the Polygon API.
+    /// </summary>
+    /// <typeparam name="T">Type of the result.</typeparam>
     public sealed class PolygonResponse<T> {
         /// <summary>
         /// Status of the response. <see cref="PolygonResponseStatus.Ok"/> if the request has succeeded,
@@ -27,6 +31,9 @@ namespace PolygonNET.Network {
         public T Result { get; set; }
     }
 
+    /// <summary>
+    /// Structure of the response of a failed request to the Polygon API.
+    /// </summary>
     public sealed class PolygonFailedResponse {
         /// <summary>
         /// Status of the response. <see cref="PolygonResponseStatus.Ok"/> if the request has succeeded,

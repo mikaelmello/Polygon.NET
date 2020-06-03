@@ -10,10 +10,39 @@ using PolygonNET.Network.Exceptions;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
+    /// <summary>
+    /// Custom wrapper around an httpClient that takes care of adding auth parameters to a request
+    /// and parsing the response.
+    /// </summary>
     public interface IPolygonHttpClient {
+        /// <summary>
+        /// Makes a request to the address with <paramref name="methodName"/> and the specified parameters.
+        /// </summary>
+        /// <param name="methodName">Name of the method to be called.</param>
+        /// <param name="parameters">Parameters of the call.</param>
+        /// <param name="cancellationToken">Cancellation token for the async request.</param>
+        /// <typeparam name="T">Type of the result.</typeparam>
+        /// <returns>The result parsed from the response body.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// This reason can come from the "comment" field from the response body or generic response data
+        /// if the body could not be parsed.
+        /// </exception>
         public Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
                                        CancellationToken cancellationToken);
 
+        /// <summary>
+        /// Makes a request to the address with <paramref name="methodName"/> and the specified parameters.
+        /// </summary>
+        /// <param name="methodName">Name of the method to be called.</param>
+        /// <param name="parameters">Parameters of the call.</param>
+        /// <param name="cancellationToken">Cancellation token for the async request.</param>
+        /// <returns>The raw response body.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// This reason can come from the "comment" field from the response body or generic response data
+        /// if the body could not be parsed.
+        /// </exception>
         public Task<string> RequestAsync(string methodName, Dictionary<string, string> parameters,
                                          CancellationToken cancellationToken);
     }

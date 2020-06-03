@@ -3,6 +3,9 @@ using System.Security.Cryptography;
 using System.Text;
 
 namespace PolygonNET.Utils {
+    /// <summary>
+    /// Utilities methods related to crypto used throughout the library.
+    /// </summary>
     public interface IPolygonCryptoUtils {
         /// <summary>
         /// Computes the SHA512 hash of <paramref name="plainText"/> and returns its equivalent hexadecimal

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 
 namespace PolygonNET.Utils {
+    /// <summary>
+    /// Utilities methods related to randomness used throughout the library.
+    /// </summary>
     public interface IPolygonRandomUtils {
         /// <summary>
         /// Generates a string with <paramref name="length"/> random alphanumeric characters.
