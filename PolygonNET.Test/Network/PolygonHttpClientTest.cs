@@ -13,7 +13,7 @@ using PolygonNET.Network;
 using PolygonNET.Network.Exceptions;
 using PolygonNET.Utils;
 
-namespace PolygonNET.Tests.Network {
+namespace PolygonNET.Test.Network {
     public class PolygonHttpClientTest {
         private Faker _faker;
         private Mock<IPolygonAuth> _polygonAuth;

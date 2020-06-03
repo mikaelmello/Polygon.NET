@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 
 namespace PolygonNET.Utils {
-    public interface IRandomUtils {
+    internal interface IRandomUtils {
         /// <summary>
         /// Generates a string with <paramref name="length"/> random alphanumeric characters.
         /// </summary>
@@ -33,7 +33,7 @@ namespace PolygonNET.Utils {
         public string GetRandomString(int length, ISet<char> characterSet);
     }
     
-    public class RandomUtils : IRandomUtils {
+    internal class RandomUtils : IRandomUtils {
         public string GetRandomAlphanumericString(int length) {
             const string alphanumericCharacters =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +

@@ -8,7 +8,7 @@ using NUnit.Framework;
 using PolygonNET.Network;
 using PolygonNET.Utils;
 
-namespace PolygonNET.Tests.Network {
+namespace PolygonNET.Test.Network {
     [TestFixture]
     public class PolygonAuthTest {
         private Mock<IRandomUtils> _randomUtils;

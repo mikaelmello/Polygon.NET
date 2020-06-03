@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonNET", "PolygonNET\PolygonNET.csproj", "{72301106-36A0-4D16-A0B5-3F69E77A25F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonNET.Tests", "PolygonNET.Tests\PolygonNET.Tests.csproj", "{188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonNET.Test", "PolygonNET.Test\PolygonNET.Test.csproj", "{188A7E1F-A475-45AD-AC70-3E6CD0DF0EF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

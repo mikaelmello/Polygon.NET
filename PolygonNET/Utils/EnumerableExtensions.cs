@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web;
 
 namespace PolygonNET.Utils {
-    public static class EnumerableExtensions {
+    internal static class EnumerableExtensions {
         /// <summary>
         /// Builds a query string by concatenating the key-value pairs using the format &quot;key=value&quot;.
         /// Each pair is separated by an &amp; character and both key and value are url-encoded.

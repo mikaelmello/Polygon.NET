@@ -10,7 +10,7 @@ using PolygonNET.Network.Exceptions;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
-    public class PolygonHttpClient {
+    internal class PolygonHttpClient {
         private readonly PolygonConfiguration _configuration;
         private readonly IPolygonAuth _polygonAuth;
         private readonly HttpClient _httpClient;

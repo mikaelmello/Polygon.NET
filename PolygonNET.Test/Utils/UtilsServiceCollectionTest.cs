@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using PolygonNET.Utils;
 
-namespace PolygonNET.Tests.Utils {
+namespace PolygonNET.Test.Utils {
     [TestFixture]
     public class UtilsServiceCollectionTest {
         private IServiceCollection _sc;

@@ -4,7 +4,7 @@ using Bogus;
 using NUnit.Framework;
 using PolygonNET.Utils;
 
-namespace PolygonNET.Tests.Utils {
+namespace PolygonNET.Test.Utils {
     [TestFixture]
     public class RandomUtilsTest {
         private Faker _faker;

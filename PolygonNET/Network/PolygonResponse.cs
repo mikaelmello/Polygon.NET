@@ -6,12 +6,12 @@ namespace PolygonNET.Network {
     /// Possible response status of API requests.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum PolygonResponseStatus {
+    internal enum PolygonResponseStatus {
         Ok,
         Failed,
     }
 
-    public sealed class PolygonResponse<T> {
+    internal sealed class PolygonResponse<T> {
         /// <summary>
         /// Status of the response. <see cref="PolygonResponseStatus.Ok"/> if the request has succeeded,
         /// <see cref="PolygonResponseStatus.Failed"/> if not.
@@ -27,7 +27,7 @@ namespace PolygonNET.Network {
         public T Result { get; set; }
     }
 
-    public sealed class PolygonFailedResponse {
+    internal sealed class PolygonFailedResponse {
         /// <summary>
         /// Status of the response. <see cref="PolygonResponseStatus.Ok"/> if the request has succeeded,
         /// <see cref="PolygonResponseStatus.Failed"/> if not.
