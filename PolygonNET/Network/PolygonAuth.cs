@@ -4,7 +4,7 @@ using System.Linq;
 using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
-    internal interface IPolygonAuth {
+    public interface IPolygonAuth {
         /// <summary>
         /// Adds the apiKey, time and apiSig parameters in the <paramref name="parameters"/> dictionary, necessary
         /// for auth in the Polygon API.
@@ -26,13 +26,18 @@ namespace PolygonNET.Network {
         public string GetApiSignature(string methodName, Dictionary<string, string> parameters, string apiSecret);
     }
 
-    internal class PolygonAuth : IPolygonAuth {
+    public class PolygonAuth : IPolygonAuth {
         private readonly IPolygonRandomUtils _randomUtils;
         private readonly IPolygonCryptoUtils _cryptoUtils;
 
         public PolygonAuth(IPolygonRandomUtils randomUtils, IPolygonCryptoUtils cryptoUtils) {
             _randomUtils = randomUtils;
             _cryptoUtils = cryptoUtils;
+        }
+
+        public PolygonAuth() {
+            _randomUtils = new PolygonRandomUtils();
+            _cryptoUtils = new PolygonCryptoUtils();
         }
 
         public void AuthorizeRequest(string methodName,
