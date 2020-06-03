@@ -6,23 +6,23 @@ using PolygonNET.Utils;
 
 namespace PolygonNET.Test.Utils {
     [TestFixture]
-    public class RandomUtilsTest {
+    public class PolygonRandomUtilsTest {
         private Faker _faker;
-        private RandomUtils _randomUtils;
-        private int _randIterations;
+        private PolygonRandomUtils _randomUtils;
+        private int _iterations;
         private int _maxStringLength;
 
         [OneTimeSetUp]
         public void Setup() {
             _faker = new Faker();
-            _randomUtils = new RandomUtils();
-            _randIterations = 10;
+            _randomUtils = new PolygonRandomUtils();
+            _iterations = 10;
             _maxStringLength = 500;
         }
 
         [Test]
         public void RandomAlphaNumericStringReturnsCorrectLength() {
-            for (var i = 0; i < _randIterations; i++) {
+            for (var i = 0; i < _iterations; i++) {
                 var length = _faker.Random.Number(_maxStringLength);
                 var rand = _randomUtils.GetRandomAlphanumericString(length);
 
@@ -32,7 +32,7 @@ namespace PolygonNET.Test.Utils {
 
         [Test]
         public void RandomAlphaNumericStringContainsAlphaNumericCharsOnly() {
-            for (var i = 0; i < _randIterations; i++) {
+            for (var i = 0; i < _iterations; i++) {
                 var length = _faker.Random.Number(_maxStringLength);
                 var rand = _randomUtils.GetRandomAlphanumericString(length);
 
@@ -62,7 +62,7 @@ namespace PolygonNET.Test.Utils {
                 "abcdefghijklmnopqrstuvwxyz" +
                 "0123456789";
 
-            for (var i = 0; i < _randIterations; i++) {
+            for (var i = 0; i < _iterations; i++) {
                 var length = _faker.Random.Number(_maxStringLength);
                 var rand = _randomUtils.GetRandomString(length, alphanumericCharacters.ToHashSet());
 
@@ -74,7 +74,7 @@ namespace PolygonNET.Test.Utils {
         public void RandomStringReturnsCorrectCharset() {
             const string charset = "abcde12345!@#$%[]{}()";
 
-            for (var i = 0; i < _randIterations; i++) {
+            for (var i = 0; i < _iterations; i++) {
                 var length = _faker.Random.Number(_maxStringLength);
                 var rand = _randomUtils.GetRandomString(length, charset.ToHashSet());
 

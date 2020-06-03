@@ -3,12 +3,12 @@ using PolygonNET.Utils;
 
 namespace PolygonNET.Test.Utils {
     [TestFixture]
-    public class CryptoUtilsTest {
-        private ICryptoUtils _cryptoUtils;
+    public class PolygonCryptoUtilsTest {
+        private IPolygonCryptoUtils _cryptoUtils;
 
         [OneTimeSetUp]
         public void Setup() {
-            _cryptoUtils = new CryptoUtils();
+            _cryptoUtils = new PolygonCryptoUtils();
         }
         
         [Test]

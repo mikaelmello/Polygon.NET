@@ -11,8 +11,8 @@ using PolygonNET.Utils;
 namespace PolygonNET.Test.Network {
     [TestFixture]
     public class PolygonAuthTest {
-        private Mock<IRandomUtils> _randomUtils;
-        private Mock<ICryptoUtils> _cryptoUtils;
+        private Mock<IPolygonRandomUtils> _randomUtils;
+        private Mock<IPolygonCryptoUtils> _cryptoUtils;
         private IPolygonAuth _polygonAuth;
         private Faker _faker;
 
@@ -23,8 +23,8 @@ namespace PolygonNET.Test.Network {
 
         [SetUp]
         public void BeforeEach() {
-            _randomUtils = new Mock<IRandomUtils>(MockBehavior.Strict);
-            _cryptoUtils = new Mock<ICryptoUtils>(MockBehavior.Strict);
+            _randomUtils = new Mock<IPolygonRandomUtils>(MockBehavior.Strict);
+            _cryptoUtils = new Mock<IPolygonCryptoUtils>(MockBehavior.Strict);
             _polygonAuth = new PolygonAuth(_randomUtils.Object, _cryptoUtils.Object);
         }
 

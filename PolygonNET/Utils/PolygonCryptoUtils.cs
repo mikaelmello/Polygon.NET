@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 namespace PolygonNET.Utils {
-    internal interface ICryptoUtils {
+    public interface IPolygonCryptoUtils {
         /// <summary>
         /// Computes the SHA512 hash of <paramref name="plainText"/> and returns its equivalent hexadecimal
         /// representation, uppercase and stripped of dashes.
@@ -14,7 +14,7 @@ namespace PolygonNET.Utils {
         public string ComputeSha512Hash(string plainText);
     }
     
-    internal class CryptoUtils : ICryptoUtils {
+    internal class PolygonCryptoUtils : IPolygonCryptoUtils {
         public string ComputeSha512Hash(string plainText) {
             using var sha512 = new SHA512Managed();
             var hash = sha512.ComputeHash(Encoding.UTF8.GetBytes(plainText));

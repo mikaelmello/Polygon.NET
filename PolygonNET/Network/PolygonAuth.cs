@@ -27,10 +27,10 @@ namespace PolygonNET.Network {
     }
 
     internal class PolygonAuth : IPolygonAuth {
-        private readonly IRandomUtils _randomUtils;
-        private readonly ICryptoUtils _cryptoUtils;
+        private readonly IPolygonRandomUtils _randomUtils;
+        private readonly IPolygonCryptoUtils _cryptoUtils;
 
-        public PolygonAuth(IRandomUtils randomUtils, ICryptoUtils cryptoUtils) {
+        public PolygonAuth(IPolygonRandomUtils randomUtils, IPolygonCryptoUtils cryptoUtils) {
             _randomUtils = randomUtils;
             _cryptoUtils = cryptoUtils;
         }
