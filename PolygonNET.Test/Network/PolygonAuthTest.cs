@@ -29,6 +29,13 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
+        [Description("No args constructor of PolygonAuth works")]
+        public void NoArgsConstructorWorks() {
+            _polygonAuth = new PolygonAuth();
+            Assert.NotNull(_polygonAuth);
+        }
+
+        [Test]
         public void AuthorizeRequestCreatesCorrectParams() {
             const string expectedRand = "qwerty";
             var expectedSignature = _faker.Random.Hash();
