@@ -6,7 +6,7 @@ namespace PolygonNET.Api {
     /// <summary>
     /// Represents a resource, source or aux file.
     /// </summary>
-    public class PolygonProblemSolution {
+    public struct PolygonProblemSolution {
         /// <summary>
         /// Name of the solution.
         /// </summary>

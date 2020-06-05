@@ -2,7 +2,7 @@ namespace PolygonNET.Api {
     /// <summary>
     /// Represents a problem’s statement.
     /// </summary>
-    public class PolygonStatement {
+    public struct PolygonStatement {
         /// <summary>
         /// Name of the problem in the statement's language.
         /// </summary>

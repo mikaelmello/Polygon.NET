@@ -2,7 +2,7 @@ namespace PolygonNET.Api {
     /// <summary>
     /// Represents a problem’s general information.
     /// </summary>
-    public class PolygonProblemInfo {
+    public struct PolygonProblemInfo {
         /// <summary>
         /// Input file name or "stdin" for standard input.
         /// </summary>    

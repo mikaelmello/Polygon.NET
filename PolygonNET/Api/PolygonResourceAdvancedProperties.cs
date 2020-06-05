@@ -6,7 +6,7 @@ namespace PolygonNET.Api {
     /// for specific file types and asset types. The most important application is IOI-style graders.
     /// Example: {"forTypes":"cpp.*","main":false,"stages":["COMPILE"],"assets":["SOLUTION"]}
     /// </summary>
-    public class PolygonResourceAdvancedProperties {
+    public struct PolygonResourceAdvancedProperties {
         /// <summary>
         /// Currently reserved to be false.
         /// </summary>

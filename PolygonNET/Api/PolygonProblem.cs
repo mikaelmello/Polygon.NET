@@ -2,7 +2,7 @@ namespace PolygonNET.Api {
     /// <summary>
     /// Represents a Polygon problem.
     /// </summary>
-    public class PolygonProblem {
+    public struct PolygonProblem {
         /// <summary>
         /// Problem Id.
         /// </summary>
