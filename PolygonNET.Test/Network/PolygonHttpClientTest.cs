@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using Bogus;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -11,7 +13,6 @@ using Moq.Protected;
 using NUnit.Framework;
 using PolygonNET.Network;
 using PolygonNET.Network.Exceptions;
-using PolygonNET.Utils;
 
 namespace PolygonNET.Test.Network {
     public class PolygonHttpClientTest {
@@ -49,7 +50,8 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
-        public async Task RequestAsyncTCallsCorrectUri() {
+        [Description("RequestAsync<T> calls correct uri with correct request body")]
+        public async Task RequestAsyncTCallsCorrectUriAndCorrectRequestBody() {
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -70,7 +72,7 @@ namespace PolygonNET.Test.Network {
 
             _ = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None);
 
-            var expectedUri = new Uri($"http://example.com/problems.fetch?{parameters.BuildQueryString()}");
+            var expectedUri = new Uri("http://example.com/problems.fetch");
 
             _httpHandler.Protected().Verify(
                 "SendAsync",
@@ -78,6 +80,7 @@ namespace PolygonNET.Test.Network {
                 ItExpr.Is<HttpRequestMessage>(req =>
                                                   req.Method == HttpMethod.Post
                                                   && req.RequestUri == expectedUri
+                                                  && req.Content.MatchesDictionary(parameters).Result
                 ),
                 ItExpr.IsAny<CancellationToken>()
             );
@@ -89,6 +92,7 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
+        [Description("RequestAsync<T> calls correct uri with correct empty request body")]
         public async Task RequestAsyncTCallsCorrectUriWithEmptyParams() {
             _httpHandler
                 .Protected()
@@ -114,6 +118,7 @@ namespace PolygonNET.Test.Network {
                 ItExpr.Is<HttpRequestMessage>(req =>
                                                   req.Method == HttpMethod.Post
                                                   && req.RequestUri == expectedUri
+                                                  && req.Content.MatchesDictionary(parameters).Result
                 ),
                 ItExpr.IsAny<CancellationToken>()
             );
@@ -172,7 +177,7 @@ namespace PolygonNET.Test.Network {
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
-            
+
             _httpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Exactly(1),
@@ -186,7 +191,7 @@ namespace PolygonNET.Test.Network {
                 ""status"": ""FAILED"",
                 ""comment"": ""failed request, that's too bad""
             }";
-            
+
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -204,7 +209,7 @@ namespace PolygonNET.Test.Network {
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
-            
+
             _httpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Exactly(1),
@@ -218,7 +223,7 @@ namespace PolygonNET.Test.Network {
                 ""status"": ""FAILED"",
                 ""comment"": ""failed request, that's too bad""
             }";
-            
+
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -236,7 +241,7 @@ namespace PolygonNET.Test.Network {
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
-            
+
             _httpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Exactly(1),
@@ -245,6 +250,7 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
+        [Description("RequestAsync calls correct uri with correct request body")]
         public async Task RequestAsyncCallsCorrectUri() {
             _httpHandler
                 .Protected()
@@ -266,7 +272,7 @@ namespace PolygonNET.Test.Network {
 
             _ = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
 
-            var expectedUri = new Uri($"http://example.com/problems.fetch?{parameters.BuildQueryString()}");
+            var expectedUri = new Uri($"http://example.com/problems.fetch");
 
             _httpHandler.Protected().Verify(
                 "SendAsync",
@@ -274,6 +280,7 @@ namespace PolygonNET.Test.Network {
                 ItExpr.Is<HttpRequestMessage>(req =>
                                                   req.Method == HttpMethod.Post
                                                   && req.RequestUri == expectedUri
+                                                  && req.Content.MatchesDictionary(parameters).Result
                 ),
                 ItExpr.IsAny<CancellationToken>()
             );
@@ -285,6 +292,7 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
+        [Description("RequestAsync calls correct uri with correct empty request body")]
         public async Task RequestAsyncCallsCorrectUriWithEmptyParams() {
             _httpHandler
                 .Protected()
@@ -310,6 +318,7 @@ namespace PolygonNET.Test.Network {
                 ItExpr.Is<HttpRequestMessage>(req =>
                                                   req.Method == HttpMethod.Post
                                                   && req.RequestUri == expectedUri
+                                                  && req.Content.MatchesDictionary(parameters).Result
                 ),
                 ItExpr.IsAny<CancellationToken>()
             );
@@ -322,7 +331,7 @@ namespace PolygonNET.Test.Network {
 
         [Test]
         public async Task RequestAsyncReturnsCorrectResponse() {
-            var resContent = _faker.Lorem.Text(); 
+            var resContent = _faker.Lorem.Text();
 
             _httpHandler
                 .Protected()
@@ -363,7 +372,7 @@ namespace PolygonNET.Test.Network {
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
-            
+
             _httpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Exactly(1),
@@ -377,7 +386,7 @@ namespace PolygonNET.Test.Network {
                 ""status"": ""FAILED"",
                 ""comment"": ""failed request, that's too bad""
             }";
-            
+
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -395,7 +404,7 @@ namespace PolygonNET.Test.Network {
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
                 () => _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
-            
+
             _httpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Exactly(1),
@@ -409,7 +418,7 @@ namespace PolygonNET.Test.Network {
                 ""status"": ""FAILED"",
                 ""comment"": ""failed request, that's too bad""
             }";
-            
+
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -426,7 +435,7 @@ namespace PolygonNET.Test.Network {
 
             var response = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
             Assert.AreEqual(resContent, response);
-            
+
             _httpHandler.Protected().Verify(
                 "SendAsync",
                 Times.Exactly(1),
@@ -436,6 +445,21 @@ namespace PolygonNET.Test.Network {
 
         private class ExpectedObject {
             public string ExpectedString { get; set; }
+        }
+    }
+
+    public static class TestExtensions {
+        public static async Task<bool> MatchesDictionary(this HttpContent httpContent,
+                                                         Dictionary<string, string> parameters) {
+            var str = await httpContent.ReadAsStringAsync();
+            var parsed = HttpUtility.ParseQueryString(str);
+
+            var anyFailureContent = (from key in parsed.AllKeys
+                                     let value = parsed[key]
+                                     where !parameters.ContainsKey(key) || parameters[key] != value
+                                     select key).Any();
+
+            return parameters.Count == parsed.Count && !anyFailureContent;
         }
     }
 }

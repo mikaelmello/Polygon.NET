@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using PolygonNET.Network.Exceptions;
-using PolygonNET.Utils;
 
 namespace PolygonNET.Network {
     /// <summary>
@@ -81,14 +80,8 @@ namespace PolygonNET.Network {
                                                CancellationToken cancellationToken) {
             _auth.AuthorizeRequest(methodName, parameters, _configuration.ApiKey, _configuration.ApiSecret);
 
-            var path = methodName;
-
-            if (parameters.Count > 0) {
-                var queryString = parameters.BuildQueryString();
-                path = $"{methodName}?{queryString}";
-            }
-
-            var response = await _httpClient.PostAsync(path, null, cancellationToken);
+            var reqContent = new FormUrlEncodedContent(parameters);
+            var response = await _httpClient.PostAsync(methodName, reqContent, cancellationToken);
             var content = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode) {
