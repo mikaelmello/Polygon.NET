@@ -250,8 +250,8 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
-        [Description("RequestAsync calls correct uri with correct request body")]
-        public async Task RequestAsyncCallsCorrectUri() {
+        [Description("RequestContentAsync calls correct uri with correct request body")]
+        public async Task RequestContentAsyncCallsCorrectUri() {
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -270,7 +270,7 @@ namespace PolygonNET.Test.Network {
                 {"key2", "value2"},
             };
 
-            _ = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
+            _ = await _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None);
 
             var expectedUri = new Uri("http://example.com/problems.fetch");
 
@@ -292,8 +292,8 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
-        [Description("RequestAsync calls correct uri with correct empty request body")]
-        public async Task RequestAsyncCallsCorrectUriWithEmptyParams() {
+        [Description("RequestContentAsync calls correct uri with correct empty request body")]
+        public async Task RequestContentAsyncCallsCorrectUriWithEmptyParams() {
             _httpHandler
                 .Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -308,7 +308,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
 
             var parameters = new Dictionary<string, string>();
-            _ = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
+            _ = await _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None);
 
             var expectedUri = new Uri("http://example.com/problems.fetch");
 
@@ -330,7 +330,7 @@ namespace PolygonNET.Test.Network {
         }
 
         [Test]
-        public async Task RequestAsyncReturnsCorrectResponse() {
+        public async Task RequestContentAsyncReturnsCorrectResponse() {
             var resContent = _faker.Lorem.Text();
 
             _httpHandler
@@ -346,7 +346,7 @@ namespace PolygonNET.Test.Network {
 
             const string methodName = "problems.fetch";
 
-            var response = await _polygonHttpClient.RequestAsync(
+            var response = await _polygonHttpClient.RequestContentAsync(
                 methodName, new Dictionary<string, string>(),
                 CancellationToken.None);
 
@@ -370,7 +370,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -402,7 +402,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -433,7 +433,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var response = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
+            var response = await _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None);
             Assert.AreEqual(resContent, response);
 
             _httpHandler.Protected().Verify(
