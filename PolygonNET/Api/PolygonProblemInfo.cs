@@ -5,7 +5,7 @@ namespace PolygonNET.Api {
     public struct PolygonProblemInfo {
         /// <summary>
         /// Input file name or "stdin" for standard input.
-        /// </summary>    
+        /// </summary>
         public string InputFile { get; set; }
 
         /// <summary>

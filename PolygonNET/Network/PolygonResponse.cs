@@ -17,13 +17,13 @@ namespace PolygonNET.Network {
     /// <typeparam name="T">Type of the result.</typeparam>
     public sealed class PolygonResponse<T> {
         /// <summary>
-        /// Status of the response. <see cref="PolygonResponseStatus.Ok"/> if the request has succeeded,
-        /// <see cref="PolygonResponseStatus.Failed"/> if not.
+        /// Status of the response. <see cref="PolygonResponseStatus.Ok" /> if the request has succeeded,
+        /// <see cref="PolygonResponseStatus.Failed" /> if not.
         /// </summary>
         public PolygonResponseStatus Status { get; set; }
 
         /// <summary>
-        /// If the request has failed, it contains the reason, null otherwise. 
+        /// If the request has failed, it contains the reason, null otherwise.
         /// </summary>
         public string Comment { get; set; }
 
@@ -38,13 +38,13 @@ namespace PolygonNET.Network {
     /// </summary>
     public sealed class PolygonFailedResponse {
         /// <summary>
-        /// Status of the response. <see cref="PolygonResponseStatus.Ok"/> if the request has succeeded,
-        /// <see cref="PolygonResponseStatus.Failed"/> if not.
+        /// Status of the response. <see cref="PolygonResponseStatus.Ok" /> if the request has succeeded,
+        /// <see cref="PolygonResponseStatus.Failed" /> if not.
         /// </summary>
         public PolygonResponseStatus Status { get; set; }
 
         /// <summary>
-        /// If the request has failed, it contains the reason, null otherwise. 
+        /// If the request has failed, it contains the reason, null otherwise.
         /// </summary>
         public string Comment { get; set; }
     }

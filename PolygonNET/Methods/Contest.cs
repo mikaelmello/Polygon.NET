@@ -33,7 +33,7 @@ namespace PolygonNET.Methods {
         }
 
         /// <summary>
-        /// Returns a list of <see cref="PolygonProblem"/> with information about the problems of the contest.
+        /// Returns a list of <see cref="PolygonProblem" /> with information about the problems of the contest.
         /// </summary>
         /// <param name="ct">Cancellation token.</param>
         public async Task<List<PolygonProblem>> GetProblems(CancellationToken ct = default) {

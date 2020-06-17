@@ -8,12 +8,14 @@ namespace PolygonNET.Utils {
     /// </summary>
     public interface IPolygonCryptoUtils {
         /// <summary>
-        /// Computes the SHA512 hash of <paramref name="plainText"/> and returns its equivalent hexadecimal
+        /// Computes the SHA512 hash of <paramref name="plainText" /> and returns its equivalent hexadecimal
         /// representation, uppercase and stripped of dashes.
         /// </summary>
         /// <param name="plainText">Text to be hashed</param>
-        /// <returns>Equivalent hexadecimal representation of the SHA512 hash of <paramref name="plainText"/>,
-        /// uppercase and stripped of dashes.</returns>
+        /// <returns>
+        /// Equivalent hexadecimal representation of the SHA512 hash of <paramref name="plainText" />,
+        /// uppercase and stripped of dashes.
+        /// </returns>
         public string ComputeSha512Hash(string plainText);
     }
 

@@ -33,7 +33,7 @@ namespace PolygonNET.Methods {
         }
 
         /// <summary>
-        /// Retrieves the <see cref="PolygonProblemInfo"/> of the problem.
+        /// Retrieves the <see cref="PolygonProblemInfo" /> of the problem.
         /// </summary>
         /// <param name="ct">Cancellation token.</param>
         public async Task<PolygonProblemInfo> GetProblemInfo(CancellationToken ct = default) {

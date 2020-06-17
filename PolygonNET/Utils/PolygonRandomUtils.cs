@@ -9,29 +9,29 @@ namespace PolygonNET.Utils {
     /// </summary>
     public interface IPolygonRandomUtils {
         /// <summary>
-        /// Generates a string with <paramref name="length"/> random alphanumeric characters.
+        /// Generates a string with <paramref name="length" /> random alphanumeric characters.
         /// </summary>
         /// <param name="length">Length of the generated string.</param>
-        /// <returns>String with <paramref name="length"/> random alphanumeric  characters.</returns>
+        /// <returns>String with <paramref name="length" /> random alphanumeric  characters.</returns>
         /// <exception cref="ArgumentException">
-        /// When <paramref name="length"/> is negative or larger than <code>int.MaxValue / 8</code>.
+        /// When <paramref name="length" /> is negative or larger than <code>int.MaxValue / 8</code>.
         /// </exception>
         public string GetRandomAlphanumericString(int length);
 
         /// <summary>
-        /// Generates a string with <paramref name="length"/> random characters from <paramref name="characterSet"/>.
+        /// Generates a string with <paramref name="length" /> random characters from <paramref name="characterSet" />.
         /// </summary>
         /// <param name="length">Length of the generated string.</param>
         /// <param name="characterSet">Set of characters that the string can contain.</param>
         /// <returns>
-        /// String with <paramref name="length"/> random characters from <paramref name="characterSet"/>.
+        /// String with <paramref name="length" /> random characters from <paramref name="characterSet" />.
         /// </returns>
         /// <exception cref="ArgumentException">
-        /// When <paramref name="length"/> is negative or larger than <code>int.MaxValue / 8</code>, and when
-        /// <paramref name="characterSet"/> is empty.
+        /// When <paramref name="length" /> is negative or larger than <code>int.MaxValue / 8</code>, and when
+        /// <paramref name="characterSet" /> is empty.
         /// </exception>
         /// <exception cref="ArgumentNullException">
-        /// When <paramref name="characterSet"/> is null.
+        /// When <paramref name="characterSet" /> is null.
         /// </exception>
         public string GetRandomString(int length, ISet<char> characterSet);
     }

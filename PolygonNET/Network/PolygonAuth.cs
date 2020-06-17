@@ -9,7 +9,7 @@ namespace PolygonNET.Network {
     /// </summary>
     public interface IPolygonAuth {
         /// <summary>
-        /// Adds the apiKey, time and apiSig parameters in the <paramref name="parameters"/> dictionary, necessary
+        /// Adds the apiKey, time and apiSig parameters in the <paramref name="parameters" /> dictionary, necessary
         /// for auth in the Polygon API.
         /// </summary>
         /// <param name="methodName">Name of the method called by the request.</param>
@@ -20,8 +20,8 @@ namespace PolygonNET.Network {
                                      string apiSecret);
 
         /// <summary>
-        /// Returns the signature needed for auth in the Polygon API, based on the <paramref name="methodName"/>,
-        /// <paramref name="parameters"/> and <paramref name="apiSecret"/>.
+        /// Returns the signature needed for auth in the Polygon API, based on the <paramref name="methodName" />,
+        /// <paramref name="parameters" /> and <paramref name="apiSecret" />.
         /// </summary>
         /// <param name="methodName">Name of the method called by the request.</param>
         /// <param name="parameters">Parameters containing in the request.</param>

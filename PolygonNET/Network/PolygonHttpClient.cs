@@ -15,7 +15,7 @@ namespace PolygonNET.Network {
     /// </summary>
     public interface IPolygonHttpClient {
         /// <summary>
-        /// Makes a request to the address with <paramref name="methodName"/> and the specified parameters.
+        /// Makes a request to the address with <paramref name="methodName" /> and the specified parameters.
         /// </summary>
         /// <param name="methodName">Name of the method to be called.</param>
         /// <param name="parameters">Parameters of the call.</param>
@@ -31,7 +31,7 @@ namespace PolygonNET.Network {
                                        CancellationToken cancellationToken);
 
         /// <summary>
-        /// Makes a request to the address with <paramref name="methodName"/> and the specified parameters.
+        /// Makes a request to the address with <paramref name="methodName" /> and the specified parameters.
         /// </summary>
         /// <param name="methodName">Name of the method to be called.</param>
         /// <param name="parameters">Parameters of the call.</param>
