@@ -21,11 +21,11 @@ namespace PolygonNET.Methods {
         /// <param name="problemOwner">Problem owner login. Ignored if it is null or only whitespaces.</param>
         /// <param name="ct">Cancellation token used in the request.</param>
         /// <returns>A list of problems, available to the user, according to search parameters.</returns>
-        public async Task<List<PolygonProblem>> GetAvailableProblems(bool? showDeleted = null,
-                                                                     long? problemId = null,
-                                                                     string problemName = null,
-                                                                     string problemOwner = null,
-                                                                     CancellationToken ct = default) {
+        public async Task<List<PolygonProblem>> GetAllAvailable(bool? showDeleted = null,
+                                                                long? problemId = null,
+                                                                string problemName = null,
+                                                                string problemOwner = null,
+                                                                CancellationToken ct = default) {
             const string methodName = "problems.list";
 
             var parameters = new Dictionary<string, string>();
