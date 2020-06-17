@@ -7,22 +7,22 @@ namespace PolygonNET.Api {
         /// Name of the problem in the statement's language.
         /// </summary>
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Legend of the problem in the statement's language.
         /// </summary>
         public string Legend { get; set; }
-        
+
         /// <summary>
         /// Input format of the problem in the statement's language.
         /// </summary>
         public string Input { get; set; }
-        
+
         /// <summary>
         /// Output format of the problem in the statement's language.
         /// </summary>
         public string Output { get; set; }
-        
+
         /// <summary>
         /// Statement encoding in packages.
         /// </summary>

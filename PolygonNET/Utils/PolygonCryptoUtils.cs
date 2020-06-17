@@ -16,7 +16,7 @@ namespace PolygonNET.Utils {
         /// uppercase and stripped of dashes.</returns>
         public string ComputeSha512Hash(string plainText);
     }
-    
+
     internal class PolygonCryptoUtils : IPolygonCryptoUtils {
         public string ComputeSha512Hash(string plainText) {
             using var sha512 = new SHA512Managed();

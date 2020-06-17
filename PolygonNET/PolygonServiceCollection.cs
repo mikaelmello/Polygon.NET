@@ -11,7 +11,7 @@ namespace PolygonNET {
         /// <param name="services">The service collection.</param>
         /// <param name="setupAction">Setup action to configure the <see cref="PolygonConfiguration"/></param>
         public static IServiceCollection AddPolygonClient(this IServiceCollection services,
-                                                    Action<PolygonConfiguration> setupAction) {
+                                                          Action<PolygonConfiguration> setupAction) {
             services.Configure(setupAction);
             services.AddHttpServices();
             services.AddSingleton<PolygonClient>();

@@ -10,7 +10,7 @@ namespace PolygonNET.Test.Utils {
         public void Setup() {
             _cryptoUtils = new PolygonCryptoUtils();
         }
-        
+
         [Test]
         public void LoremIpsumHashMatches() {
             // ReSharper disable StringLiteralTypo

@@ -98,7 +98,7 @@ namespace PolygonNET.Test.Network {
                         .Returns(_faker.Random.AlphaNumeric(6));
             _cryptoUtils.Setup(c => c.ComputeSha512Hash(It.IsAny<string>()))
                         .Returns(_faker.Random.Hash());
-            
+
             const int expectedRandLen = 6;
 
             _ = _polygonAuth.GetApiSignature(default, new Dictionary<string, string>(), default);

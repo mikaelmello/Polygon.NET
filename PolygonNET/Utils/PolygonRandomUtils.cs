@@ -17,7 +17,7 @@ namespace PolygonNET.Utils {
         /// When <paramref name="length"/> is negative or larger than <code>int.MaxValue / 8</code>.
         /// </exception>
         public string GetRandomAlphanumericString(int length);
-        
+
         /// <summary>
         /// Generates a string with <paramref name="length"/> random characters from <paramref name="characterSet"/>.
         /// </summary>
@@ -35,7 +35,7 @@ namespace PolygonNET.Utils {
         /// </exception>
         public string GetRandomString(int length, ISet<char> characterSet);
     }
-    
+
     internal class PolygonRandomUtils : IPolygonRandomUtils {
         public string GetRandomAlphanumericString(int length) {
             const string alphanumericCharacters =

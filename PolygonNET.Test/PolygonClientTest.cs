@@ -10,7 +10,7 @@ namespace PolygonNET.Test {
         public void ConstructorWorks() {
             var mockClient = new Mock<IPolygonHttpClient>();
             var polygon = new PolygonClient(mockClient.Object);
-            
+
             Assert.AreSame(mockClient.Object, polygon.HttpClient);
         }
     }

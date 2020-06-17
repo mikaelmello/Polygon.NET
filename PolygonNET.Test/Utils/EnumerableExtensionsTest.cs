@@ -13,7 +13,7 @@ namespace PolygonNET.Test.Utils {
         public void Setup() {
             _faker = new Faker();
         }
-        
+
         [Test]
         public void QueryStringIsProperlyBuiltWithExample() {
             const string expectedStr = "ei=d8XSXrSHNoLC5OUPmvOngAM&q=quuerystringexample&oq=quuerystringexample&" +
@@ -22,7 +22,7 @@ namespace PolygonNET.Test.Utils {
                                        "QgAEJECOgQIABBDOgIIADoECAAQCjoGCAAQDRAKUOwvWJVAYO9AaANwAHgCgAGpAogB1x2SA" +
                                        "QYwLjIuMTSYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwj0noLtudzpAhUC" +
                                        "IbkGHZr5CTAQ4dUDCAw&uact=5";
-            
+
             var enumerable = new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>("ei", "d8XSXrSHNoLC5OUPmvOngAM"),
                 new KeyValuePair<string, string>("q", "quuerystringexample"),
@@ -36,10 +36,10 @@ namespace PolygonNET.Test.Utils {
                 new KeyValuePair<string, string>("ved", "0ahUKEwj0noLtudzpAhUCIbkGHZr5CTAQ4dUDCAw"),
                 new KeyValuePair<string, string>("uact", "5"),
             };
-            
+
             Assert.AreEqual(expectedStr, enumerable.BuildQueryString());
         }
-        
+
         [Test]
         public void QueryStringIsProperlyBuiltWithRandomAlphaNumericValues() {
             const int paramsCount = 10;
@@ -49,11 +49,11 @@ namespace PolygonNET.Test.Utils {
 
             for (var i = 0; i < paramsCount; i++) {
                 var separator = i > 0 ? "&" : "";
-                
+
                 // not an integration test, it is just useful in this context too =)
                 var key = _faker.Random.AlphaNumeric(strLen);
                 var value = _faker.Random.AlphaNumeric(strLen);
-                
+
                 enumerable.Add(new KeyValuePair<string, string>(key, value));
                 expectedStr += $"{separator}{key}={value}";
             }
@@ -65,7 +65,7 @@ namespace PolygonNET.Test.Utils {
         public void QueryStringIsProperlyBuiltWithEncodedChars() {
             const string expectedDecodedStr = "q=string ! with @ some = # weird $ chars % for \" testing & " +
                                               "purposes * in ( library )";
-            
+
             var enumerable = new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>("q", "string ! with @ some = # weird $ chars % for \" testing & " +
                                                       "purposes * in ( library )"),
