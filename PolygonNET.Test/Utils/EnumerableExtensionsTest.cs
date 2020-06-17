@@ -23,7 +23,7 @@ namespace PolygonNET.Test.Utils {
                                        "QYwLjIuMTSYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwj0noLtudzpAhUC" +
                                        "IbkGHZr5CTAQ4dUDCAw&uact=5";
 
-            var enumerable = new List<KeyValuePair<string, string>>() {
+            var enumerable = new List<KeyValuePair<string, string>> {
                 new KeyValuePair<string, string>("ei", "d8XSXrSHNoLC5OUPmvOngAM"),
                 new KeyValuePair<string, string>("q", "quuerystringexample"),
                 new KeyValuePair<string, string>("oq", "quuerystringexample"),
@@ -66,7 +66,7 @@ namespace PolygonNET.Test.Utils {
             const string expectedDecodedStr = "q=string ! with @ some = # weird $ chars % for \" testing & " +
                                               "purposes * in ( library )";
 
-            var enumerable = new List<KeyValuePair<string, string>>() {
+            var enumerable = new List<KeyValuePair<string, string>> {
                 new KeyValuePair<string, string>("q", "string ! with @ some = # weird $ chars % for \" testing & " +
                                                       "purposes * in ( library )"),
             };

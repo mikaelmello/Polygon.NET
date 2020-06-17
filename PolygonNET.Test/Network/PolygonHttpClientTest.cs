@@ -110,7 +110,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
             _ = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None);
 
-            var expectedUri = new Uri($"http://example.com/problems.fetch");
+            var expectedUri = new Uri("http://example.com/problems.fetch");
 
             _httpHandler.Protected().Verify(
                 "SendAsync",
@@ -272,7 +272,7 @@ namespace PolygonNET.Test.Network {
 
             _ = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
 
-            var expectedUri = new Uri($"http://example.com/problems.fetch");
+            var expectedUri = new Uri("http://example.com/problems.fetch");
 
             _httpHandler.Protected().Verify(
                 "SendAsync",
@@ -310,7 +310,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
             _ = await _polygonHttpClient.RequestAsync(methodName, parameters, CancellationToken.None);
 
-            var expectedUri = new Uri($"http://example.com/problems.fetch");
+            var expectedUri = new Uri("http://example.com/problems.fetch");
 
             _httpHandler.Protected().Verify(
                 "SendAsync",
