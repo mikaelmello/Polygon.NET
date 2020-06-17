@@ -29,7 +29,7 @@ namespace PolygonNET.Network {
         /// if the body could not be parsed.
         /// </exception>
         public Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
-                                       CancellationToken cancellationToken);
+                                       CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Makes a request to the address with <paramref name="methodName" /> and the specified parameters.
@@ -44,7 +44,7 @@ namespace PolygonNET.Network {
         /// if the body could not be parsed.
         /// </exception>
         public Task RequestAsync(string methodName, Dictionary<string, string> parameters,
-                                 CancellationToken cancellationToken);
+                                 CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Makes a request to the address with <paramref name="methodName" /> and the specified parameters.
@@ -59,7 +59,7 @@ namespace PolygonNET.Network {
         /// if the body could not be parsed.
         /// </exception>
         public Task<string> RequestContentAsync(string methodName, Dictionary<string, string> parameters,
-                                                CancellationToken cancellationToken);
+                                                CancellationToken cancellationToken = default);
     }
 
     public class PolygonHttpClient : IPolygonHttpClient {
@@ -81,7 +81,7 @@ namespace PolygonNET.Network {
         }
 
         public async Task<T> RequestAsync<T>(string methodName, Dictionary<string, string> parameters,
-                                             CancellationToken cancellationToken) {
+                                             CancellationToken cancellationToken = default) {
             var stringContent = await RequestContentAsync(methodName, parameters, cancellationToken);
             var content = JsonConvert.DeserializeObject<PolygonResult<T>>(stringContent);
 
@@ -93,7 +93,7 @@ namespace PolygonNET.Network {
         }
 
         public async Task RequestAsync(string methodName, Dictionary<string, string> parameters,
-                                       CancellationToken cancellationToken) {
+                                       CancellationToken cancellationToken = default) {
             var stringContent = await RequestContentAsync(methodName, parameters, cancellationToken);
             var content = JsonConvert.DeserializeObject<PolygonResponse>(stringContent);
 
@@ -103,7 +103,7 @@ namespace PolygonNET.Network {
         }
 
         public async Task<string> RequestContentAsync(string methodName, Dictionary<string, string> parameters,
-                                                      CancellationToken cancellationToken) {
+                                                      CancellationToken cancellationToken = default) {
             _auth.AuthorizeRequest(methodName, parameters, _configuration.ApiKey, _configuration.ApiSecret);
 
             var reqContent = new FormUrlEncodedContent(parameters);

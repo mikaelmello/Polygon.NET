@@ -70,7 +70,7 @@ namespace PolygonNET.Test.Network {
                 {"key2", "value2"},
             };
 
-            _ = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None);
+            _ = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters);
 
             var expectedUri = new Uri("http://example.com/problems.fetch");
 
@@ -108,7 +108,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
 
             var parameters = new Dictionary<string, string>();
-            _ = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None);
+            _ = await _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters);
 
             var expectedUri = new Uri("http://example.com/problems.fetch");
 
@@ -151,9 +151,8 @@ namespace PolygonNET.Test.Network {
 
             const string methodName = "problems.fetch";
 
-            var response = await _polygonHttpClient.RequestAsync<ExpectedObject>(
-                methodName, new Dictionary<string, string>(),
-                CancellationToken.None);
+            var response = await _polygonHttpClient
+                .RequestAsync<ExpectedObject>(methodName, new Dictionary<string, string>());
 
             Assert.AreEqual("someValue", response.ExpectedString);
         }
@@ -175,7 +174,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -207,7 +206,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -239,7 +238,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestAsync<ExpectedObject>(methodName, parameters));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -270,7 +269,7 @@ namespace PolygonNET.Test.Network {
                 {"key2", "value2"},
             };
 
-            _ = await _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None);
+            _ = await _polygonHttpClient.RequestContentAsync(methodName, parameters);
 
             var expectedUri = new Uri("http://example.com/problems.fetch");
 
@@ -308,7 +307,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
 
             var parameters = new Dictionary<string, string>();
-            _ = await _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None);
+            _ = await _polygonHttpClient.RequestContentAsync(methodName, parameters);
 
             var expectedUri = new Uri("http://example.com/problems.fetch");
 
@@ -346,9 +345,8 @@ namespace PolygonNET.Test.Network {
 
             const string methodName = "problems.fetch";
 
-            var response = await _polygonHttpClient.RequestContentAsync(
-                methodName, new Dictionary<string, string>(),
-                CancellationToken.None);
+            var response = await _polygonHttpClient
+                .RequestContentAsync(methodName, new Dictionary<string, string>());
 
             Assert.AreEqual(resContent, response);
         }
@@ -370,7 +368,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestContentAsync(methodName, parameters));
             Assert.AreEqual("Internal Server Error: no healthy upstream", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -402,7 +400,7 @@ namespace PolygonNET.Test.Network {
             var parameters = new Dictionary<string, string>();
 
             var ex = Assert.ThrowsAsync<PolygonFailedRequestException>(
-                () => _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None));
+                () => _polygonHttpClient.RequestContentAsync(methodName, parameters));
             Assert.AreEqual("failed request, that's too bad", ex.Message);
 
             _httpHandler.Protected().Verify(
@@ -433,7 +431,7 @@ namespace PolygonNET.Test.Network {
             const string methodName = "problems.fetch";
             var parameters = new Dictionary<string, string>();
 
-            var response = await _polygonHttpClient.RequestContentAsync(methodName, parameters, CancellationToken.None);
+            var response = await _polygonHttpClient.RequestContentAsync(methodName, parameters);
             Assert.AreEqual(resContent, response);
 
             _httpHandler.Protected().Verify(
