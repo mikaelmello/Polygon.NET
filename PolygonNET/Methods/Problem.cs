@@ -36,12 +36,56 @@ namespace PolygonNET.Methods {
         /// Retrieves the <see cref="PolygonProblemInfo" /> of the problem.
         /// </summary>
         /// <param name="ct">Cancellation token.</param>
-        public async Task<PolygonProblemInfo> GetProblemInfo(CancellationToken ct = default) {
+        public async Task<PolygonProblemInfo> GetInfo(CancellationToken ct = default) {
             const string methodName = "problem.info";
 
             var parameters = DefaultParameters();
 
             return await _client.RequestAsync<PolygonProblemInfo>(methodName, parameters, ct);
+        }
+
+        /// <summary>
+        /// Updates information about the problem.
+        /// </summary>
+        /// <param name="inputFile">Input file name or "stdin" for standard input. Not updated if null or whitespace.</param>
+        /// <param name="outputFile">Output file name or "stdout" for standard output. Not updated if null or whitespace.</param>
+        /// <param name="interactive">Whether the problem is interactive. Not updated if null.</param>
+        /// <param name="memoryLimit">Time limit per test in milliseconds (between 250 ms and 15000 ms). Not updated if null.</param>
+        /// <param name="timeLimit">Memory limit in MB (between 4 MB and 1024 MB). Not updated if null.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>The updated <see cref="PolygonProblemInfo" /> of the problem.</returns>
+        public async Task<PolygonProblemInfo> UpdateInfo(string inputFile = null,
+                                                         string outputFile = null,
+                                                         bool? interactive = null,
+                                                         long? memoryLimit = null,
+                                                         long? timeLimit = null,
+                                                         CancellationToken ct = default) {
+            const string methodName = "problem.updateInfo";
+
+            var parameters = DefaultParameters();
+
+            if (!string.IsNullOrWhiteSpace(inputFile)) parameters.Add("inputFile", inputFile);
+            if (!string.IsNullOrWhiteSpace(outputFile)) parameters.Add("outputFile", outputFile);
+            if (interactive.HasValue) parameters.Add("interactive", interactive.ToString());
+            if (memoryLimit.HasValue) parameters.Add("memoryLimit", memoryLimit.ToString());
+            if (timeLimit.HasValue) parameters.Add("timeLimit", timeLimit.ToString());
+
+            return await _client.RequestAsync<PolygonProblemInfo>(methodName, parameters, ct);
+        }
+
+        /// <summary>
+        /// Updates information about the problem.
+        /// </summary>
+        /// <param name="problemInfo">
+        /// Object containing properties that are to be updated. Null or whitespace values are not
+        /// updated.
+        /// </param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>The updated <see cref="PolygonProblemInfo" /> of the problem.</returns>
+        public Task<PolygonProblemInfo> UpdateInfo(PolygonProblemInfo problemInfo,
+                                                   CancellationToken ct = default) {
+            return UpdateInfo(problemInfo.InputFile, problemInfo.OutputFile, problemInfo.Interactive,
+                              problemInfo.MemoryLimit, problemInfo.TimeLimit, ct);
         }
     }
 }
