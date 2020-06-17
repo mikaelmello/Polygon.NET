@@ -84,9 +84,7 @@ namespace PolygonNET.Network {
             var response = await _httpClient.PostAsync(methodName, reqContent, cancellationToken);
             var content = await response.Content.ReadAsStringAsync();
 
-            if (response.IsSuccessStatusCode) {
-                return content;
-            }
+            if (response.IsSuccessStatusCode) return content;
 
             try {
                 var failedResponse = JsonConvert.DeserializeObject<PolygonFailedResponse>(content);

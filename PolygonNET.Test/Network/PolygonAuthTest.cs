@@ -51,13 +51,13 @@ namespace PolygonNET.Test.Network {
 
             var parameters = new Dictionary<string, string> {
                 {"key1", "value1"},
-                {"key2", "value2"}
+                {"key2", "value2"},
             };
 
             _polygonAuth.AuthorizeRequest(methodName, parameters, apiKey, apiSecret);
 
             var paramTime = long.Parse(parameters["time"]);
-            var diffTime = (time - paramTime);
+            var diffTime = time - paramTime;
             Assert.LessOrEqual(diffTime, 60 * 5);
 
             Assert.AreEqual(apiKey, parameters["apiKey"]);

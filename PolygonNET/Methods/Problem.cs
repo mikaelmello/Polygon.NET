@@ -24,7 +24,7 @@ namespace PolygonNET.Methods {
         /// </summary>
         private Dictionary<string, string> DefaultParameters() {
             var parameters = new Dictionary<string, string> {
-                {"problemId", _problemId.ToString()}
+                {"problemId", _problemId.ToString()},
             };
 
             if (!string.IsNullOrWhiteSpace(_pinCode)) parameters.Add("pin", _pinCode);

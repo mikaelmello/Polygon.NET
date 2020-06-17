@@ -46,16 +46,22 @@ namespace PolygonNET.Utils {
         }
 
         public string GetRandomString(int length, ISet<char> characterSet) {
-            if (length < 0)
+            if (length < 0) {
                 throw new ArgumentException("length must not be negative", nameof(length));
-            if (length > int.MaxValue / 8) // 250 million chars ought to be enough for anybody
-                throw new ArgumentException("length is too big", nameof(length));
-            if (characterSet == null)
-                throw new ArgumentNullException(nameof(characterSet));
+            }
 
-            var characterArray = characterSet.ToArray();
-            if (characterArray.Length == 0)
+            // 250 million chars ought to be enough for anybody
+            if (length > int.MaxValue / 8) {
+                throw new ArgumentException("length is too big", nameof(length));
+            }
+
+            if (characterSet == null) {
+                throw new ArgumentNullException(nameof(characterSet));
+            }
+
+            if (characterSet.Count == 0) {
                 throw new ArgumentException("characterSet must not be empty", nameof(characterSet));
+            }
 
             var bytes = new byte[length * 8];
             var result = new char[length];
@@ -63,6 +69,7 @@ namespace PolygonNET.Utils {
                 cryptoProvider.GetBytes(bytes);
             }
 
+            var characterArray = characterSet.ToArray();
             for (var i = 0; i < length; i++) {
                 var value = BitConverter.ToUInt64(bytes, i * 8);
                 result[i] = characterArray[value % (uint) characterArray.Length];

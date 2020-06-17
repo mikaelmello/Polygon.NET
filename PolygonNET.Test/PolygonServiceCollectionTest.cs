@@ -32,7 +32,9 @@ namespace PolygonNET.Test {
 
         [Test]
         public void PolygonConfigurationIsConfigured() {
-            static bool Check(ServiceDescriptor s) => s.ServiceType == typeof(IConfigureOptions<PolygonConfiguration>);
+            static bool Check(ServiceDescriptor s) {
+                return s.ServiceType == typeof(IConfigureOptions<PolygonConfiguration>);
+            }
 
             var count = _sc.Count(Check);
 
