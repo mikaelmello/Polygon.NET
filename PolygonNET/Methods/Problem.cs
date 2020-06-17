@@ -54,12 +54,12 @@ namespace PolygonNET.Methods {
         /// <param name="timeLimit">Memory limit in MB (between 4 MB and 1024 MB). Not updated if null.</param>
         /// <param name="ct">Cancellation token for the request.</param>
         /// <returns>The updated <see cref="PolygonProblemInfo" /> of the problem.</returns>
-        public async Task<PolygonProblemInfo> UpdateInfo(string inputFile = null,
-                                                         string outputFile = null,
-                                                         bool? interactive = null,
-                                                         long? memoryLimit = null,
-                                                         long? timeLimit = null,
-                                                         CancellationToken ct = default) {
+        public async Task UpdateInfo(string inputFile = null,
+                                     string outputFile = null,
+                                     bool? interactive = null,
+                                     long? memoryLimit = null,
+                                     long? timeLimit = null,
+                                     CancellationToken ct = default) {
             const string methodName = "problem.updateInfo";
 
             var parameters = DefaultParameters();
@@ -70,7 +70,7 @@ namespace PolygonNET.Methods {
             if (memoryLimit.HasValue) parameters.Add("memoryLimit", memoryLimit.ToString());
             if (timeLimit.HasValue) parameters.Add("timeLimit", timeLimit.ToString());
 
-            return await _client.RequestAsync<PolygonProblemInfo>(methodName, parameters, ct);
+            await _client.RequestAsync(methodName, parameters, ct);
         }
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace PolygonNET.Methods {
         /// </param>
         /// <param name="ct">Cancellation token for the request.</param>
         /// <returns>The updated <see cref="PolygonProblemInfo" /> of the problem.</returns>
-        public Task<PolygonProblemInfo> UpdateInfo(PolygonProblemInfo problemInfo,
-                                                   CancellationToken ct = default) {
+        public Task UpdateInfo(PolygonProblemInfo problemInfo,
+                               CancellationToken ct = default) {
             return UpdateInfo(problemInfo.InputFile, problemInfo.OutputFile, problemInfo.Interactive,
                               problemInfo.MemoryLimit, problemInfo.TimeLimit, ct);
         }
