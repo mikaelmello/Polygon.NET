@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using PolygonNET.Api;
 using PolygonNET.Network;
+using PolygonNET.Network.Exceptions;
 
 namespace PolygonNET.Methods {
     /// <summary>
@@ -36,6 +37,9 @@ namespace PolygonNET.Methods {
         /// Retrieves the <see cref="PolygonProblemInfo" /> of the problem.
         /// </summary>
         /// <param name="ct">Cancellation token.</param>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
         public async Task<PolygonProblemInfo> GetInfo(CancellationToken ct = default) {
             const string methodName = "problem.info";
 
@@ -54,6 +58,9 @@ namespace PolygonNET.Methods {
         /// <param name="timeLimit">Memory limit in MB (between 4 MB and 1024 MB). Not updated if null.</param>
         /// <param name="ct">Cancellation token for the request.</param>
         /// <returns>The updated <see cref="PolygonProblemInfo" /> of the problem.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
         public async Task UpdateInfo(string inputFile = null,
                                      string outputFile = null,
                                      bool? interactive = null,
@@ -82,6 +89,9 @@ namespace PolygonNET.Methods {
         /// </param>
         /// <param name="ct">Cancellation token for the request.</param>
         /// <returns>The updated <see cref="PolygonProblemInfo" /> of the problem.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
         public Task UpdateInfo(PolygonProblemInfo problemInfo,
                                CancellationToken ct = default) {
             return UpdateInfo(problemInfo.InputFile, problemInfo.OutputFile, problemInfo.Interactive,

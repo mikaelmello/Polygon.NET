@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using PolygonNET.Api;
 using PolygonNET.Network;
+using PolygonNET.Network.Exceptions;
 
 namespace PolygonNET.Methods {
     /// <summary>
@@ -36,6 +37,9 @@ namespace PolygonNET.Methods {
         /// Returns a list of <see cref="PolygonProblem" /> with information about the problems of the contest.
         /// </summary>
         /// <param name="ct">Cancellation token.</param>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
         public async Task<List<PolygonProblem>> GetProblems(CancellationToken ct = default) {
             const string methodName = "contest.problems";
 

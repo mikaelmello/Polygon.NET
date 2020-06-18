@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using PolygonNET.Api;
 using PolygonNET.Network;
+using PolygonNET.Network.Exceptions;
 
 namespace PolygonNET.Methods {
     public class Problems {
@@ -21,6 +22,9 @@ namespace PolygonNET.Methods {
         /// <param name="problemOwner">Problem owner login. Ignored if it is null or only whitespaces.</param>
         /// <param name="ct">Cancellation token used in the request.</param>
         /// <returns>A list of problems, available to the user, according to search parameters.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
         public async Task<List<PolygonProblem>> GetAllAvailable(bool? showDeleted = null,
                                                                 long? problemId = null,
                                                                 string problemName = null,
