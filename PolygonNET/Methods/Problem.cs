@@ -97,5 +97,57 @@ namespace PolygonNET.Methods {
             return UpdateInfo(problemInfo.InputFile, problemInfo.OutputFile, problemInfo.Interactive,
                               problemInfo.MemoryLimit, problemInfo.TimeLimit, ct);
         }
+
+        /// <summary>
+        /// Returns the name of currently set checker of the problem.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>The name of currently set checker of the problem.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
+        public async Task<string> GetCheckerName(CancellationToken ct = default) {
+            const string methodName = "problem.checker";
+
+            var parameters = DefaultParameters();
+
+            return await _client.RequestAsync<string>(methodName, parameters, ct);
+        }
+
+        /// <summary>
+        /// Returns the name of currently set validator of the problem. If the response is an empty string,
+        /// it is interpreted as no validator and null is returned.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>The name of currently set validator of the problem.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
+        public async Task<string> GetValidatorName(CancellationToken ct = default) {
+            const string methodName = "problem.validator";
+
+            var parameters = DefaultParameters();
+
+            var validatorName = await _client.RequestAsync<string>(methodName, parameters, ct);
+
+            return string.IsNullOrEmpty(validatorName) ? null : validatorName;
+        }
+
+        /// <summary>
+        /// Returns the name of currently set interactor of the problem. If the problem is not interactive, the request
+        /// will fail.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>The name of currently set interactor of the problem.</returns>
+        /// <exception cref="PolygonFailedRequestException">
+        /// When the request fails, containing as the message the reason for the request to fail.
+        /// </exception>
+        public async Task<string> GetInteractorName(CancellationToken ct = default) {
+            const string methodName = "problem.interactor";
+
+            var parameters = DefaultParameters();
+
+            return await _client.RequestAsync<string>(methodName, parameters, ct);
+        }
     }
 }
